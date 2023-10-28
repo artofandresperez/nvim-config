@@ -1,12 +1,41 @@
 return {
 	"epwalsh/obsidian.nvim",
-	opts = {
-		workspaces = {
-			name = "personal",
-			path = "Z:/Obsidian/petri-dish",
-		},
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"hrsh7th/nvim-cmp",
 	},
+
 	config = function()
-		require "obsidian".setup({})
-	end
+		require("obsidian").setup({
+			notes_subdir = "1_Petri_Dish",
+
+			workspaces = {
+				{
+					name = "amoeba",
+					path = "Z:/Obsidian/petri-dish",
+				},
+			},
+			completion = {
+				-- If using nvim-cmp, otherwise set to false
+				nvim_cmp = true,
+				-- Trigger completion at 2 chars
+				min_chars = 2,
+				-- Where to put new notes created from completion. Valid options are
+				--  * "current_dir" - put new notes in same directory as the current buffer.
+				--  * "notes_subdir" - put new notes in the default notes subdirectory.
+				new_notes_location = "notes_subdir",
+
+				-- Whether to add the output of the node_id_func to new notes in autocompletion.
+				-- E.g. "[[Foo" completes to "[[foo|Foo]]" assuming "foo" is the ID of the note.
+				prepend_note_id = true,
+			},
+
+			daily_notes = {
+				folder = "Scratchpad/Periodic Notes/Daily Notes",
+			},
+			templates = {
+				subdir = "__FILES/Templates",
+			},
+		})
+	end,
 }
