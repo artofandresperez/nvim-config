@@ -1,6 +1,6 @@
 # My neovim configuration
+----
 
-now working on android  
+I still dont know lua
 
 
-test
