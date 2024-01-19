@@ -32,7 +32,7 @@ return {
 		})
 
 		mason_tool_installer.setup({
-			ensure_installed = {},
+			ensure_installed = {"clangd"},
 		})
 	end,
 }
