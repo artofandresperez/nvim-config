@@ -32,7 +32,7 @@ return {
 		})
 
 		mason_tool_installer.setup({
-			ensure_installed = {"clangd"},
+			ensure_installed = {"clangd" , "clang-format" , "cmake-language-server" , "cmakelang" , "cmakelint" },
 		})
 	end,
 }
